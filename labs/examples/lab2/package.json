@@ -1,0 +1,18 @@
+{
+  "name": "lab2",
+  "version": "1.0.0",
+  "description": "Callback Promise and Async Await",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "week02",
+    "gbc",
+    "promise"
+  ],
+  "author": "Maddox Duggan",
+  "license": "ISC"
+}
