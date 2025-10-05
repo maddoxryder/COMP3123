@@ -6,7 +6,7 @@ const userRouter = require('./routes/users');
 // Middleware for JSON request body
 app.use(express.json());
 
-// ✅ Corrected: add leading slash before route path
+
 app.use('/api/v1/user', userRouter);
 
 /*
