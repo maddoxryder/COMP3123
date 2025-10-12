@@ -91,39 +91,39 @@
 </code></pre>
       <h3>index.js snippet</h3>
       <pre><code>const express = require(&quot;express&quot;);
-const app = express();
+const index = express();
 
-app.use(express.json());
+index.use(express.json());
 
 // ✅ Serve static files in /public (instruction.html will be at /instruction.html)
-app.use(express.static(&quot;public&quot;));
+index.use(express.static(&quot;public&quot;));
 
 // GET /hello
-app.get(&quot;/hello&quot;, (req, res) =&gt; {
+index.get(&quot;/hello&quot;, (req, res) =&gt; {
   res.type(&quot;text/plain&quot;).send(&quot;Hello Express JS&quot;);
 });
 
 // GET /user?firstname=&amp;lastname=
-app.get(&quot;/user&quot;, (req, res) =&gt; {
+index.get(&quot;/user&quot;, (req, res) =&gt; {
   const firstname = req.query.firstname || &quot;Pritesh&quot;;
   const lastname = req.query.lastname || &quot;Patel&quot;;
   res.json({ firstname, lastname });
 });
 
 // POST /user/:firstname/:lastname
-app.post(&quot;/user/:firstname/:lastname&quot;, (req, res) =&gt; {
+index.post(&quot;/user/:firstname/:lastname&quot;, (req, res) =&gt; {
   const { firstname, lastname } = req.params;
   res.json({ firstname, lastname });
 });
 
 // POST /users  (expects an array of { firstname, lastname })
-app.post(&quot;/users&quot;, (req, res) =&gt; {
+index.post(&quot;/users&quot;, (req, res) =&gt; {
   const users = Array.isArray(req.body) ? req.body : [];
   res.json(users);
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () =&gt; console.log(\`Server running on http://localhost:\${PORT}\&quot;));
+index.listen(PORT, () =&gt; console.log(\`Server running on http://localhost:\${PORT}\&quot;));
 </code></pre>
     </div>
 

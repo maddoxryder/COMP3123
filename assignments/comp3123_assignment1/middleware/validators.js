@@ -1,10 +1,23 @@
 const { body } = require('express-validator');
 
 const userSignupRules = [
-    body('username').isString().isLength({ min: 3 }).withMessage('username must be at least 3 chars'),
-    body('email').isEmail().withMessage('valid email required'),
-    body('password').isLength({ min: 6 }).withMessage('password must be at least 6 chars')
+    body('username')
+        .exists().withMessage('username is required')
+        .bail() // stop further validators if missing
+        .isString().withMessage('username must be a string')
+        .isLength({ min: 3 }).withMessage('username must be at least 3 chars'),
+
+    body('email')
+        .exists().withMessage('email is required')
+        .bail()
+        .isEmail().withMessage('valid email required'),
+
+    body('password')
+        .exists().withMessage('password is required')
+        .bail()
+        .isLength({ min: 6 }).withMessage('password must be at least 6 chars')
 ];
+
 
 const userLoginRules = [
     body('password').exists(),

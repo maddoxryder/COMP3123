@@ -50,7 +50,7 @@
 
 - Return 500 page with message "Server Error"
 ```
-app.use((err,req,res,next) => {
+index.use((err,req,res,next) => {
   res.send('This is error router');
 });
 ```
@@ -72,7 +72,7 @@ app.use((err,req,res,next) => {
 
 **7. Dynamic Port Binding in Express.js**
 
-- Explain how the `app.listen(process.env.port || 8081)` line works and why it's useful in production environments.
+- Explain how the `index.listen(process.env.port || 8081)` line works and why it's useful in production environments.
 
 ---
 # Submission Guideline
